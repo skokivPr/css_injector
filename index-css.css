@@ -252,6 +252,7 @@ header {
     position: relative;
     user-select: none;
     flex-shrink: 0;
+    transition: background 0.2s;
 }
 
 .resize-gutter:hover,
@@ -391,8 +392,8 @@ header {
 }
 
 .detected-row {
-    padding: 0.6rem;
-    margin-bottom: 4px;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 2px;
     background: var(--panel-bg);
     border: var(--border-color);
     font-size: 0.7rem;
@@ -403,12 +404,10 @@ header {
 }
 
 .detected-row:hover {
-    background: var(--hover-bg);
     color: var(--text-primary);
 }
 
 .detected-row.active {
-    background: var(--hover-bg);
     color: var(--text-primary);
 }
 
@@ -450,13 +449,36 @@ header {
 }
 
 .bg-controls {
-    padding: 0.8rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     background: var(--panel-bg);
     border-top: var(--border-color);
     display: flex;
     gap: 1rem;
     align-items: center;
     box-shadow: var(--shadow-drop);
+}
+
+.bg-controls-left {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.bg-controls-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bg-controls-right {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: var(--highlight-color-hover);
+    opacity: 0.8;
 }
 
 .action-btn {
@@ -486,13 +508,72 @@ header {
     color: var(--text-muted);
 }
 
+.action-btn.fill i {
+    color: var(--highlight-color);
+    transition: all 0.2s;
+}
+
 .action-btn.fill:hover {
     background: var(--hover-bg);
     color: var(--highlight-color);
 }
 
+.action-btn.fill:hover i {
+    color: var(--text-primary);
+}
+
 .action-btn.fill:active {
     box-shadow: var(--shadow-inset);
+    color: var(--text-muted);
+}
+
+.action-btn.fill:active i {
+    color: var(--text-muted);
+}
+
+.action-btn.save-btn i {
+    color: var(--warning-color);
+    transition: all 0.2s;
+}
+
+.action-btn.save-btn:hover {
+    background: var(--hover-bg);
+    color: var(--warning-color);
+}
+
+.action-btn.save-btn:hover i {
+    color: var(--text-primary);
+}
+
+.action-btn.save-btn:active {
+    box-shadow: var(--shadow-inset);
+    color: var(--text-muted);
+}
+
+.action-btn.save-btn:active i {
+    color: var(--text-muted);
+}
+
+.action-btn.clear-btn i {
+    color: var(--danger-color);
+    transition: all 0.2s;
+}
+
+.action-btn.clear-btn:hover {
+    background: var(--hover-bg);
+    color: var(--danger-color);
+}
+
+.action-btn.clear-btn:hover i {
+    color: var(--text-primary);
+}
+
+.action-btn.clear-btn:active {
+    box-shadow: var(--shadow-inset);
+    color: var(--text-muted);
+}
+
+.action-btn.clear-btn:active i {
     color: var(--text-muted);
 }
 
@@ -614,4 +695,23 @@ header {
     box-shadow: var(--shadow-inset);
     color: var(--text-muted);
     transition: all 0.01s;
+}
+
+.panel-footer {
+    padding: 0.2rem 0.5rem;
+    background: var(--hover-bg);
+    border-top: var(--border-color);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    gap: 0.5rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    box-shadow: var(--shadow-inset);
+    color: var(--info-color);
 }
